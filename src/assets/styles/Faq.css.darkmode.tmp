@@ -1,0 +1,29 @@
+body.dark-theme .faq-card,
+[data-theme="dark"] .faq-card {
+    background: #ffffff; /* white card in dark mode */
+    border: none;
+    box-shadow: var(--card-shadow-elevated);
+}
+
+body.dark-theme .faq-question h5,
+[data-theme="dark"] .faq-question h5 {
+    color: var(--text);
+}
+
+body.dark-theme .faq-answer p,
+[data-theme="dark"] .faq-answer p {
+    color: var(--text-muted);
+}
+
+body.dark-theme .faq-icon,
+[data-theme="dark"] .faq-icon {
+    background: rgba(139,92,246,0.08);
+    color: var(--text-h);
+}
+
+body.dark-theme .faq-card.active .faq-icon,
+[data-theme="dark"] .faq-card.active .faq-icon {
+    background: var(--levender);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(139,92,246,0.28);
+}

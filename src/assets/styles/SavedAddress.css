@@ -1,0 +1,698 @@
+/* ── Saved Address Page ── */
+
+/* Sticky sidebar */
+.sidebar-sticky {
+    position: sticky;
+    top: 75px;
+    align-self: flex-start;
+}
+
+.saved-address-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    border: 1px solid #ececec;
+    overflow: visible;
+}
+
+/* ── Card header row: title + button ── */
+.addr-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.addr-card-header h5 {
+    font-size: 1rem;
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* ── "Add new" button ── */
+.add-address-btn {
+    background: transparent;
+    border: 1.5px solid var(--levender);
+    color: var(--levender);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    transition: 0.25s ease;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.add-address-btn:hover {
+    background: var(--levender);
+    color: #fff;
+}
+
+/* ── Slide-down form animation ── */
+.address-form-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.address-form-collapse.open {
+    max-height: 2000px;
+    overflow: visible;
+}
+
+/* Form box inside the collapse */
+.address-form-box {
+    border: 1px solid #e8e0f7;
+    border-radius: 10px;
+    padding: 20px;
+    background: #faf8ff;
+
+    overflow: visible;        /* ← fix: no clipping inside form box */
+}
+
+/* Form labels */
+.form-label-sm {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Form inputs */
+.addr-input {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 0.88rem;
+    padding: 9px 14px;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+.addr-input:focus {
+    border-color: var(--levender);
+    box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.18);
+    background: #fff;
+    outline: none;
+}
+textarea.addr-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Red border for invalid fields */
+.is-invalid-custom {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 0.15rem rgba(239, 68, 68, 0.15) !important;
+}
+.is-invalid-custom:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Buttons */
+.btn-addr-cancel {
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: #555;
+    background: #fff;
+    padding: 9px;
+    transition: 0.2s;
+}
+.btn-addr-cancel:hover {
+    border-color: #aaa;
+    background: #f5f5f5;
+}
+.btn-addr-save {
+    background: var(--levender);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: #fff;
+    border: none;
+    padding: 9px;
+    transition: 0.2s;
+}
+.btn-addr-save:hover {
+    background: #7c4df2;
+    color: #fff;
+}
+
+/* ── Address list items ── */
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.address-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.address-item:last-child {
+    border-bottom: none;
+}
+
+/* ── Address item top row: label + action buttons ── */
+.address-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: nowrap;
+}
+
+.addr-action-btns {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* ── Edit & Delete buttons ── */
+.addr-edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #f9fafb;
+    color: #374151;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+.addr-edit-btn:hover {
+    border-color: var(--levender);
+    color: var(--levender);
+    background: #f5f0ff;
+}
+
+.addr-delete-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    background: #fff1f1;
+    color: #dc2626;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+.addr-delete-btn:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+}
+
+.address-label {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #888;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    max-width: 100%;
+}
+
+.address-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    margin: 0 0 2px;
+}
+
+.address-text {
+    font-size: 0.83rem;
+    color: #555;
+    margin-bottom: 2px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    max-width: 100%;
+}
+
+/* Edit address button (legacy, kept for safety) */
+.edit-addr-btn {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #666;
+    padding: 4px 12px;
+    white-space: nowrap;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+.edit-addr-btn:hover {
+    border-color: var(--levender);
+    color: var(--levender);
+    background: #f5f0ff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .saved-address-card {
+        padding: 16px 14px;
+        border-radius: 12px;
+    }
+    .address-form-collapse.open {
+        max-height: 2500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .saved-address-card {
+        padding: 14px 12px;
+    }
+    .addr-card-header h5 {
+        font-size: 0.95rem;
+    }
+    .add-address-btn {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    .addr-edit-btn,
+    .addr-delete-btn {
+        font-size: 0.72rem;
+        padding: 3px 8px;
+    }
+    .address-form-box {
+        padding: 14px 12px;
+    }
+}
+
+/* ── Modal overlay ── */
+.modal-overlay-custom {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeInModal 0.2s ease-out;
+}
+
+.modal-box-custom {
+    background: #ffffff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    padding: 24px;
+    text-align: center;
+}
+
+.modal-box-custom h5 {
+    font-weight: 700;
+    color: #171744;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.modal-box-custom p {
+    font-size: 0.88rem;
+    color: #6b7280;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.btn-modal-cancel {
+    flex: 1;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    padding: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-modal-cancel:hover {
+    background: #e5e7eb;
+}
+
+.btn-modal-confirm {
+    flex: 1;
+    background: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn-modal-confirm:hover {
+    opacity: 0.9;
+}
+
+/* ── Delete Address Modal ── */
+.del-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    animation: delFadeIn 0.18s ease-out;
+}
+
+@keyframes delFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.del-modal-box {
+    background: #fff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 380px;
+    overflow: hidden;
+    animation: delSlideUp 0.22s ease-out;
+}
+
+@keyframes delSlideUp {
+    from { transform: translateY(16px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Icon ring */
+.del-modal-icon-ring {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fef2f2;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 28px auto 16px;
+}
+
+/* Title */
+.del-modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin: 0 24px 8px;
+}
+
+/* Subtitle */
+.del-modal-sub {
+    font-size: 0.82rem;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.55;
+    margin: 0 24px 0;
+}
+
+/* Address preview chip */
+.del-modal-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin: 14px 24px 24px;
+    font-size: 0.78rem;
+    color: #374151;
+    word-break: break-word;
+}
+
+.del-modal-chip-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    flex-shrink: 0;
+}
+
+/* Footer */
+.del-modal-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #f3f4f6;
+}
+
+.del-btn-cancel {
+    padding: 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    border-right: 1px solid #f3f4f6;
+    color: #6b7280;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.del-btn-cancel:hover {
+    background: #f9fafb;
+}
+
+.del-btn-confirm {
+    padding: 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.del-btn-confirm:hover {
+    background: #fef2f2;
+}
+
+/* ── Dark mode ── */
+body.dark-theme .del-modal-box,
+[data-theme="dark"] .del-modal-box {
+    background: var(--surface-alt) !important;
+    border: 1px solid var(--border) !important;
+}
+
+body.dark-theme .del-modal-icon-ring,
+[data-theme="dark"] .del-modal-icon-ring {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #f87171 !important;
+}
+
+body.dark-theme .del-modal-title,
+[data-theme="dark"] .del-modal-title {
+    color: var(--text) !important;
+}
+
+body.dark-theme .del-modal-sub,
+[data-theme="dark"] .del-modal-sub {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .del-modal-chip,
+[data-theme="dark"] .del-modal-chip {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .del-modal-footer,
+[data-theme="dark"] .del-modal-footer {
+    border-top-color: var(--border) !important;
+}
+
+body.dark-theme .del-btn-cancel,
+[data-theme="dark"] .del-btn-cancel {
+    color: var(--text-secondary) !important;
+    border-right-color: var(--border) !important;
+}
+body.dark-theme .del-btn-cancel:hover,
+[data-theme="dark"] .del-btn-cancel:hover {
+    background: var(--surface) !important;
+}
+
+body.dark-theme .del-btn-confirm,
+[data-theme="dark"] .del-btn-confirm {
+    color: #f87171 !important;
+}
+body.dark-theme .del-btn-confirm:hover,
+[data-theme="dark"] .del-btn-confirm:hover {
+    background: rgba(239, 68, 68, 0.12) !important;
+}
+
+/* ── Dark theme for address form ── */
+body.dark-theme .address-form-box,
+[data-theme="dark"] .address-form-box {
+    background: var(--surface-alt) !important;
+    border-color: var(--border) !important;
+}
+
+body.dark-theme .form-label-sm,
+[data-theme="dark"] .form-label-sm {
+    color: var(--text) !important;
+}
+
+body.dark-theme .addr-input,
+[data-theme="dark"] .addr-input,
+body.dark-theme select.addr-input,
+[data-theme="dark"] select.addr-input,
+body.dark-theme textarea.addr-input,
+[data-theme="dark"] textarea.addr-input {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+}
+
+body.dark-theme .addr-input:focus,
+[data-theme="dark"] .addr-input:focus {
+    background: var(--surface-alt) !important;
+    border-color: var(--button-bg) !important;
+    box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25) !important;
+}
+
+body.dark-theme .addr-input::placeholder,
+[data-theme="dark"] .addr-input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+body.dark-theme select.addr-input option,
+[data-theme="dark"] select.addr-input option {
+    background: var(--surface-alt) !important;
+    color: var(--text) !important;
+}
+
+body.dark-theme .is-invalid-custom,
+[data-theme="dark"] .is-invalid-custom {
+    border-color: #ef4444 !important;
+    background: var(--surface) !important;
+}
+
+body.dark-theme .btn-addr-cancel,
+[data-theme="dark"] .btn-addr-cancel {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .btn-addr-cancel:hover,
+[data-theme="dark"] .btn-addr-cancel:hover {
+    background: var(--surface-alt) !important;
+    border-color: var(--text-muted) !important;
+}
+
+body.dark-theme .btn-addr-save,
+[data-theme="dark"] .btn-addr-save {
+    background: var(--button-bg) !important;
+    color: #fff !important;
+}
+
+body.dark-theme .btn-addr-save:hover,
+[data-theme="dark"] .btn-addr-save:hover {
+    background: #7c4df2 !important;
+}
+
+body.dark-theme .add-address-btn,
+[data-theme="dark"] .add-address-btn {
+    border-color: var(--button-bg) !important;
+    color: var(--button-bg) !important;
+    background: transparent !important;
+}
+
+body.dark-theme .add-address-btn:hover,
+[data-theme="dark"] .add-address-btn:hover {
+    background: var(--button-bg) !important;
+    color: #fff !important;
+}
+
+body.dark-theme .saved-address-card,
+[data-theme="dark"] .saved-address-card {
+    background: var(--surface-alt) !important;
+    border-color: var(--border) !important;
+}
+
+body.dark-theme .address-item,
+[data-theme="dark"] .address-item {
+    border-bottom-color: var(--border) !important;
+}
+
+body.dark-theme .address-label,
+[data-theme="dark"] .address-label {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .address-name,
+[data-theme="dark"] .address-name {
+    color: var(--text) !important;
+}
+
+body.dark-theme .address-text,
+[data-theme="dark"] .address-text {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .addr-edit-btn,
+[data-theme="dark"] .addr-edit-btn {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .addr-edit-btn:hover,
+[data-theme="dark"] .addr-edit-btn:hover {
+    border-color: var(--button-bg) !important;
+    color: var(--button-bg) !important;
+    background: rgba(139, 92, 246, 0.08) !important;
+}
+
+body.dark-theme .addr-delete-btn,
+[data-theme="dark"] .addr-delete-btn {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #f87171 !important;
+}
+
+body.dark-theme .addr-delete-btn:hover,
+[data-theme="dark"] .addr-delete-btn:hover {
+    background: rgba(239, 68, 68, 0.18) !important;
+}
+
+body.dark-theme .address-form-box h6,
+[data-theme="dark"] .address-form-box h6,
+body.dark-theme .saved-address-card h5,
+[data-theme="dark"] .saved-address-card h5 {
+    color: var(--text) !important;
+}
+
+body.dark-theme .edit-addr-btn,
+[data-theme="dark"] .edit-addr-btn {
+    background: transparent !important;
+    border-color: var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+body.dark-theme .edit-addr-btn:hover,
+[data-theme="dark"] .edit-addr-btn:hover {
+    border-color: var(--button-bg) !important;
+    color: var(--button-bg) !important;
+    background: rgba(139, 92, 246, 0.08) !important;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+}

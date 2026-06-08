@@ -1,0 +1,399 @@
+/* ===== Profile-Side-Nav.css ===== */
+
+:root {
+  --levender: #8B5CF6;
+}
+
+/* ─── Sidebar card ───────────────────────────── */
+.profile-sidebar-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  max-width: 350px;
+  padding: 18px;
+  background: #fff;
+  overflow: visible;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.profile-avatar {
+  width: 55px;
+  height: 55px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+
+.avatar-add-icon {
+  position: absolute;
+  bottom: 0;
+  right: -2px;
+  color: black;
+  background: white;
+  border-radius: 50%;
+  font-size: 1rem;
+  border: 2px solid white;
+  z-index: 2;
+}
+
+/* ─── Menu list ──────────────────────────────── */
+.profile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-menu-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.profile-menu-link:hover {
+  border-color: var(--levender);
+  color: var(--levender);
+}
+
+.profile-menu-link.active {
+  background-color: var(--levender);
+  border-color: var(--levender);
+  color: white;
+}
+
+.profile-menu-link.active .menu-icon {
+  color: white;
+}
+
+.theme-toggle-item {
+  justify-content: space-between;
+  cursor: default;
+}
+
+.theme-toggle-item:hover {
+  border-color: #e0e0e0;
+  color: #333;
+}
+
+.menu-icon {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  color: #555;
+  flex-shrink: 0;
+}
+
+/* ─── Logout button ──────────────────────────── */
+.logout-btn {
+  background-color: var(--levender);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  max-width: 350px;
+  border: none;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background-color: #7c4df2;
+  color: white;
+}
+
+/* ─── Form switch ────────────────────────────── */
+.form-check-input:checked {
+  background-color: var(--levender);
+  border-color: var(--levender);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+  border-color: var(--levender);
+}
+
+/* ─── Profile details card (used on all profile pages) ── */
+.profile-details-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   TABLET ≤ 991px
+   ═══════════════════════════════════════════════ */
+@media (max-width: 991px) {
+  .profile-sidebar-card {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 16px;
+    overflow: visible;
+  }
+  .logout-btn {
+    max-width: 100%;
+    width: 100%;
+    background-color: var(--levender) !important;
+    color: white !important;
+  }
+  .logout-btn:hover {
+    background-color: #7c4df2 !important;
+    color: white !important;
+  }
+  .profile-menu-link.active {
+    background-color: var(--levender) !important;
+    border-color: var(--levender) !important;
+    color: white !important;
+  }
+  .profile-menu-link.active .menu-icon {
+    color: white !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE ≤ 576px
+   ═══════════════════════════════════════════════ */
+@media (max-width: 576px) {
+  .profile-sidebar-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    overflow: visible;
+  }
+  .profile-avatar-wrapper {
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px;
+    overflow: visible !important;
+  }
+  .profile-avatar {
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50% !important;
+    display: block !important;
+  }
+  .profile-menu-link {
+    padding: 10px 12px;
+    font-size: 0.875rem;
+  }
+  .profile-menu-link.active {
+    background-color: var(--levender) !important;
+    border-color: var(--levender) !important;
+    color: white !important;
+  }
+  .profile-menu-link.active .menu-icon {
+    color: white !important;
+  }
+  .menu-icon {
+    font-size: 1rem;
+    margin-right: 8px;
+  }
+  .logout-btn {
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.875rem;
+    background-color: var(--levender) !important;
+    color: white !important;
+    border: none !important;
+  }
+  .logout-btn:hover {
+    background-color: #7c4df2 !important;
+    color: white !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE — complete coverage
+   ═══════════════════════════════════════════════ */
+
+/* Sidebar card */
+body.dark-theme .profile-sidebar-card,
+[data-theme="dark"] .profile-sidebar-card {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* profile-details-card — main content area on all profile pages */
+body.dark-theme .profile-details-card,
+[data-theme="dark"] .profile-details-card {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Page title inside profile-details-card */
+body.dark-theme .profile-details-card h4,
+body.dark-theme .profile-details-card h5,
+body.dark-theme .profile-details-card label,
+body.dark-theme .profile-details-card p,
+[data-theme="dark"] .profile-details-card h4,
+[data-theme="dark"] .profile-details-card h5,
+[data-theme="dark"] .profile-details-card label,
+[data-theme="dark"] .profile-details-card p {
+  color: #f1f5f9 !important;
+}
+
+/* Form inputs inside profile */
+body.dark-theme .profile-details-card .form-control,
+body.dark-theme .profile-details-card .form-select,
+[data-theme="dark"] .profile-details-card .form-control,
+[data-theme="dark"] .profile-details-card .form-select {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme .profile-details-card .form-control[readonly],
+body.dark-theme .profile-details-card .form-select:disabled,
+[data-theme="dark"] .profile-details-card .form-control[readonly],
+[data-theme="dark"] .profile-details-card .form-select:disabled {
+  background-color: #1e293b !important;
+  color: #94a3b8 !important;
+}
+
+body.dark-theme .profile-details-card .form-control:focus,
+[data-theme="dark"] .profile-details-card .form-control:focus {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+  background-color: #0f172a !important;
+}
+
+/* Mobile profile header inside Profile.jsx */
+body.dark-theme .mobile-profile-header,
+[data-theme="dark"] .mobile-profile-header {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Menu links */
+body.dark-theme .profile-menu-link,
+[data-theme="dark"] .profile-menu-link {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .profile-menu-link:hover,
+[data-theme="dark"] .profile-menu-link:hover {
+  border-color: #8b5cf6 !important;
+  color: #a78bfa !important;
+}
+
+body.dark-theme .profile-menu-link.active,
+[data-theme="dark"] .profile-menu-link.active {
+  background-color: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+  color: white !important;
+}
+
+body.dark-theme .profile-menu-link.active .menu-icon,
+[data-theme="dark"] .profile-menu-link.active .menu-icon {
+  color: white !important;
+}
+
+/* Theme toggle item hover fix — don't change on hover in dark */
+body.dark-theme .theme-toggle-item:hover,
+[data-theme="dark"] .theme-toggle-item:hover {
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Menu icons */
+body.dark-theme .menu-icon,
+[data-theme="dark"] .menu-icon {
+  color: #94a3b8 !important;
+}
+
+/* Logout button */
+body.dark-theme .logout-btn,
+[data-theme="dark"] .logout-btn {
+  background-color: #8b5cf6 !important;
+  color: white !important;
+  border: none !important;
+}
+
+body.dark-theme .logout-btn:hover,
+[data-theme="dark"] .logout-btn:hover {
+  background-color: #7c4df2 !important;
+}
+
+/* Avatar add icon */
+body.dark-theme .avatar-add-icon,
+[data-theme="dark"] .avatar-add-icon {
+  color: var(--text) !important;
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Dark theme switch */
+body.dark-theme .dark-theme-switch .form-check-input,
+[data-theme="dark"] .dark-theme-switch .form-check-input {
+  background-color: #182033 !important;
+  border: 1px solid rgba(148, 163, 184, 0.6) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23cbd5e1'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+  box-shadow: inset 0 1px 2px rgba(2, 6, 23, 0.65);
+}
+
+body.dark-theme .dark-theme-switch .form-check-input:checked,
+[data-theme="dark"] .dark-theme-switch .form-check-input:checked {
+  background-color: #8b5cf6 !important;
+  border-color: #a78bfa !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.24), inset 0 1px 2px rgba(2, 6, 23, 0.45);
+}
+
+body.dark-theme .dark-theme-switch .form-check-input:focus,
+[data-theme="dark"] .dark-theme-switch .form-check-input:focus {
+  border-color: #c4b5fd !important;
+  box-shadow: 0 0 0 0.18rem rgba(139, 92, 246, 0.28) !important;
+}
+
+/* Edit profile button */
+body.dark-theme .edit-profile-btn,
+[data-theme="dark"] .edit-profile-btn {
+  border-color: #8b5cf6 !important;
+  color: #a78bfa !important;
+  background: transparent !important;
+}
+
+body.dark-theme .edit-profile-btn:hover,
+[data-theme="dark"] .edit-profile-btn:hover {
+  background: rgba(139, 92, 246, 0.15) !important;
+}
+
+/* Cancel button */
+body.dark-theme .cancel-profile-btn,
+[data-theme="dark"] .cancel-profile-btn {
+  border-color: #475569 !important;
+  color: #94a3b8 !important;
+  background: transparent !important;
+}
+
+/* Sidebar sticky wrapper */
+.sidebar-sticky {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+}

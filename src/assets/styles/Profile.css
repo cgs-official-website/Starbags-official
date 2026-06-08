@@ -1,0 +1,190 @@
+/* Profile Page Content */
+.profile-details-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 24px;
+    background: #fff;
+}
+
+/* Sticky sidebar - matching SavedAddress */
+.sidebar-sticky {
+    position: sticky;
+    top: 75px;
+    align-self: flex-start;
+}
+
+.edit-profile-btn {
+    background-color: var(--levender, #8B5CF6);
+    color: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+}
+
+.edit-profile-btn:hover {
+    background-color: #7c4df2;
+    color: white;
+}
+
+.cancel-profile-btn {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.cancel-profile-btn:hover {
+    background-color: #ffe6e6;
+    color: red;
+}
+
+.profile-details-card .form-control,
+.profile-details-card .form-select {
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.profile-details-card .form-control:focus,
+.profile-details-card .form-select:focus {
+    border-color: var(--levender, #8B5CF6);
+    box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+}
+
+.profile-details-card .form-label {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .profile-details-card {
+        padding: 20px;
+        width: 100%;
+    }
+
+}
+
+   
+
+
+/* Dark mode overrides */
+body.dark-theme .profile-details-card,
+[data-theme="dark"] .profile-details-card {
+  background: var(--surface-alt) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.dark-theme .edit-profile-btn,
+[data-theme="dark"] .edit-profile-btn,
+body.dark-theme .cancel-profile-btn,
+[data-theme="dark"] .cancel-profile-btn {
+  background: var(--surface-alt) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.dark-theme .cancel-profile-btn:hover,
+[data-theme="dark"] .cancel-profile-btn:hover {
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+body.dark-theme .profile-details-card .form-control,
+[data-theme="dark"] .profile-details-card .form-control,
+body.dark-theme .profile-details-card .custom-form-select,
+[data-theme="dark"] .profile-details-card .custom-form-select {
+  background: var(--input-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--input-border) !important;
+}
+
+body.dark-theme .profile-details-card .form-label,
+[data-theme="dark"] .profile-details-card .form-label {
+  color: var(--text-secondary) !important;
+}
+
+/* Mobile Profile Header styles */
+.mobile-profile-header {
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.camera-icon-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #8b5cf6;
+    color: white;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    border: 2px solid white;
+}
+/* Ensure this card matches your main profile card theme */
+.mobile-profile-header {
+    background: #ffffff;
+    border-color: #e5e7eb !important;
+}
+
+/* Dark Mode Support for Mobile Header */
+body.dark-theme .mobile-profile-header,
+[data-theme="dark"] .mobile-profile-header {
+    background: var(--surface-alt) !important;
+    border-color: var(--border) !important;
+}
+/* Check if your container has overflow: hidden */
+.profile-details-card {
+  overflow: visible !important;
+}
+
+.mobile-profile-header {
+  overflow: visible !important;
+  position: relative;
+}
+
+/* Ensure the popup buttons are clearly clickable */
+.photo-popup button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.photo-popup button:hover {
+  background: #f8f9fa;
+}
+/* Ensure the popup stays on top of the form */
+.mobile-profile-header .position-relative {
+    z-index: 100;
+}
+
+/* Ensure Desktop profile header doesn't conflict */
+@media (min-width: 992px) {
+    .mobile-profile-header {
+        display: none !important;
+    }
+}
+

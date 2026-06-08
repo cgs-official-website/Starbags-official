@@ -1,0 +1,466 @@
+/* ═══════════════════════════════════════════════
+   WishList.css — Wishlist page styles
+   ═══════════════════════════════════════════════ */
+
+/* ── Grid ─────────────────────────────────────── */
+.wl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+/* ── Card ─────────────────────────────────────── */
+.wl-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #ececec;
+}
+
+.wl-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Heart button ─────────────────────────────── */
+.wl-heart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wl-heart-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.wl-heart-icon {
+  color: #ef4444;
+  font-size: 1rem;
+}
+
+/* ── Image ────────────────────────────────────── */
+.wl-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+
+.wl-img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.wl-card:hover .wl-img {
+  transform: scale(1.04);
+}
+
+/* ── Card body ────────────────────────────────── */
+.wl-card-body {
+  padding: 0.85rem 0.9rem 1rem;
+}
+
+/* Title + rating row */
+.wl-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  gap: 0.4rem;
+}
+
+.wl-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wl-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.82rem;
+  color: #1a1a1a;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.wl-star {
+  color: #facc15;
+  font-size: 0.82rem;
+}
+
+.wl-rating-count {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+/* Price row */
+.wl-price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.wl-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+
+.wl-real-price {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.wl-offer {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* Action buttons */
+.wl-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.wl-buy-btn {
+  flex: 1;
+  background-color: #8B5CF6;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.wl-buy-btn:hover {
+  background-color: #7c3aed;
+}
+
+.wl-cart-btn {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1.5px solid #8B5CF6;
+  border-radius: 8px;
+  background: transparent;
+  color: #8B5CF6;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.wl-cart-btn:hover {
+  background: #8B5CF6;
+  color: #ffffff;
+}
+
+/* ── Empty Wishlist ───────────────────────────── */
+.wl-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.wl-empty-image-wrapper {
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wl-empty-vector {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.wl-empty-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.wl-empty-shop-btn {
+  background-color: #8B5CF6 !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.wl-empty-shop-btn:hover {
+  background-color: #7c3aed !important;
+  transform: translateY(-1px);
+}
+
+/* ── Sticky Sidebar ───────────────────────────── */
+.wl-sidebar-sticky {
+  position: sticky;
+  top: 80px;
+  z-index: 2;
+  height: fit-content;
+}
+
+/* ── Wishlist header ──────────────────────────── */
+.wishlist-header {
+  margin-bottom: 1.2rem;
+}
+
+.wishlist-subtitle {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE — complete coverage
+   ═══════════════════════════════════════════════ */
+
+/* Page heading */
+body.dark-theme h4.fw-bold,
+[data-theme="dark"] h4.fw-bold {
+  color: #f1f5f9;
+}
+
+/* Wishlist subtitle */
+body.dark-theme .wishlist-subtitle,
+[data-theme="dark"] .wishlist-subtitle {
+  color: #94a3b8;
+}
+
+/* Card */
+body.dark-theme .wl-card,
+[data-theme="dark"] .wl-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .wl-card:hover,
+[data-theme="dark"] .wl-card:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+
+/* Card image background */
+body.dark-theme .wl-img-wrap,
+[data-theme="dark"] .wl-img-wrap {
+  background: #0f172a;
+}
+
+/* Heart button */
+body.dark-theme .wl-heart-btn,
+[data-theme="dark"] .wl-heart-btn {
+  background: #1e293b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Product name */
+body.dark-theme .wl-name,
+[data-theme="dark"] .wl-name {
+  color: #f1f5f9;
+}
+
+/* Rating */
+body.dark-theme .wl-rating,
+[data-theme="dark"] .wl-rating {
+  color: #e2e8f0;
+}
+
+body.dark-theme .wl-rating-count,
+[data-theme="dark"] .wl-rating-count {
+  color: #64748b;
+}
+
+/* Price */
+body.dark-theme .wl-price,
+[data-theme="dark"] .wl-price {
+  color: #f1f5f9;
+}
+
+body.dark-theme .wl-real-price,
+[data-theme="dark"] .wl-real-price {
+  color: #64748b;
+}
+
+body.dark-theme .wl-offer,
+[data-theme="dark"] .wl-offer {
+  color: #4ade80;
+}
+
+/* Cart button outline */
+body.dark-theme .wl-cart-btn,
+[data-theme="dark"] .wl-cart-btn {
+  border-color: #a78bfa;
+  color: #a78bfa;
+}
+
+body.dark-theme .wl-cart-btn:hover,
+[data-theme="dark"] .wl-cart-btn:hover {
+  background: #a78bfa;
+  color: #ffffff;
+}
+
+/* profile-details-card wrapper (used in WishList page) */
+body.dark-theme .profile-details-card,
+[data-theme="dark"] .profile-details-card {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Empty wishlist */
+body.dark-theme .wl-empty-container,
+[data-theme="dark"] .wl-empty-container {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-theme .wl-empty-heading,
+[data-theme="dark"] .wl-empty-heading {
+  color: #f1f5f9;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 992px) {
+  .wl-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .wl-img-wrap {
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .wl-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+  .wl-img-wrap {
+    height: auto;
+  }
+  .wl-card-body {
+    padding: 0.65rem 0.6rem 0.75rem;
+  }
+  .wl-name {
+    font-size: 0.8rem;
+  }
+  .wl-rating {
+    font-size: 0.72rem;
+  }
+  .wl-rating-count {
+    display: none;
+  }
+  .wl-price {
+    font-size: 0.82rem;
+  }
+  .wl-real-price {
+    font-size: 0.72rem;
+  }
+  .wl-offer {
+    font-size: 0.7rem;
+  }
+  .wl-buy-btn {
+    font-size: 0.75rem;
+    padding: 0.38rem 0.4rem;
+  }
+  .wl-cart-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .wl-heart-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .wl-heart-icon {
+    font-size: 0.85rem;
+  }
+  .wl-empty-container {
+    padding: 2.5rem 1rem;
+  }
+  .wl-empty-image-wrapper {
+    max-width: 220px;
+  }
+  .wl-empty-heading {
+    font-size: 19px;
+  }
+  .wl-empty-shop-btn {
+    font-size: 15px;
+    padding: 8px 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .wl-grid {
+    gap: 0.5rem;
+  }
+  .wl-img-wrap {
+    height: auto;
+  }
+  .wl-card-body {
+    padding: 0.5rem;
+  }
+  .wl-name {
+    font-size: 0.72rem;
+  }
+  .wl-price-row {
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+}

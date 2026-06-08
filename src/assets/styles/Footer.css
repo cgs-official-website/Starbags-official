@@ -1,0 +1,195 @@
+footer {
+    background-color: #e4dfec;
+    color: var(--text-dark, #212529);
+    font-size: 0.80rem;
+    font-weight: 500;
+}
+
+.footer-logo img {
+    padding: 0;
+    height: 85px !important;
+}
+
+.details p {
+    text-align: justify;
+    opacity: 0.8;
+}
+
+.social-icons {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    font-size: 1.5rem;
+    gap: 15px;
+}
+
+.social-icons a {
+    box-shadow: 0 0 2px var(--levender) !important;
+    padding: 8px ;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--levender);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-link li {
+    padding: 5px 0;
+}
+
+.footer-link a {
+    text-decoration: none;
+    opacity: 0.9;
+    color: var(--text-dark, #212529);
+    transition: opacity 0.2s ease;
+}
+
+.footer-link a:hover, 
+.social-icons a:hover {
+    opacity: 1;
+}
+
+.product-details h6, 
+.address h6 {
+    color: var(--levender);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+body.dark-theme footer,
+[data-theme="dark"] footer {
+    background-color: #2f0b4b; /* purple footer in dark mode */
+    color: #ffffff;
+}
+
+body.dark-theme .footer-logo,
+[data-theme="dark"] .footer-logo,
+body.dark-theme .footer-logo *,
+[data-theme="dark"] .footer-logo * {
+    color: #ffffff !important;
+}
+
+/* Use dark-mode specific logo: hide the original img but keep its layout space,
+   and inject the dark logo via a pseudo-element so spacing remains unchanged */
+body.dark-theme .footer-logo img,
+[data-theme="dark"] .footer-logo img {
+    visibility: hidden;
+}
+
+body.dark-theme .footer-logo::before,
+[data-theme="dark"] .footer-logo::before {
+    content: "";
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/brand-logo-dark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+body.dark-theme .footer-link a,
+[data-theme="dark"] .footer-link a {
+    color: rgba(255,255,255,0.9);
+}
+
+body.dark-theme .footer-link a:hover,
+[data-theme="dark"] .footer-link a:hover,
+body.dark-theme .social-icons a:hover,
+[data-theme="dark"] .social-icons a:hover {
+    opacity: 1;
+    color: #8b5cf6; /* lavender accent on hover */
+    text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+}
+
+body.dark-theme .address a:hover,
+[data-theme="dark"] .address a:hover {
+    color: #8b5cf6 !important;
+}
+
+body.dark-theme .footer-end,
+[data-theme="dark"] .footer-end {
+    border-top-color: rgba(255,255,255,0.08) !important;
+}
+
+.address p {
+    opacity: 0.8;
+    margin: 0;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.address a:hover {
+    color: var(--text-dark, #212529) !important; 
+}
+
+/* Brand Link Styling */
+.brand-map-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-map-link:hover,
+.brand-map-link:hover h5 {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Map Address Link Styles */
+.address-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.address-link span {
+    opacity: 0.8;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+/* Fixed the invalid border syntax from original code */
+.footer-end {
+    border-top: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsiveness adjustments */
+@media(max-width: 991px) {
+    /* Ensures clean block spacing when links shift into 2-column layouts */
+    .links-wrapper > div {
+        margin-bottom: 2rem;
+    }
+}
+
+@media(max-width: 768px) {
+    footer p, 
+    footer .footer-link a {
+        font-size: 0.85rem;
+    }
+    footer h5 {
+        font-size: 1.1rem;
+    }
+    footer h6 {
+        font-size: 0.95rem;
+    }
+    .social-icons {
+        font-size: 1.3rem;
+    }
+    .footer-end {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-end .policy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px !important;
+    }
+}

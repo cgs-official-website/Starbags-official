@@ -1,0 +1,413 @@
+/* ==========================================================================
+   GLOBAL RESET & INTERFACE STRUCTURAL BASELINE
+   ========================================================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.ProductCard-section {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.ProductCard-section::-webkit-scrollbar {
+    display: none;
+}
+
+.ProductCard-section .container {
+    padding: 1% 1.5%;
+    display: flex;
+    flex-wrap: nowrap;    
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    gap: 1.2rem;
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   PRODUCT CARD PROFILE MODULE
+   ========================================================================== */
+.card {
+    position: relative;
+    border-color: var(--border-gray);
+    border-radius: 0 20% 2% 2%;
+    border-top: none;
+    min-width: 14rem;
+    max-width: 14rem;
+    transition: 0.3s ease;
+    flex-shrink: 0;         
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* Dark-mode elevated shadows and subtle card tone */
+body.dark-theme .card,
+[data-theme="dark"] .card,
+body.dark-theme .wl-card,
+[data-theme="dark"] .wl-card,
+body.dark-theme .cart-card,
+[data-theme="dark"] .cart-card {
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.18s ease, transform 0.15s ease;
+}
+
+body.dark-theme .card:hover,
+[data-theme="dark"] .card:hover,
+body.dark-theme .wl-card:hover,
+[data-theme="dark"] .wl-card:hover,
+body.dark-theme .cart-card:hover,
+[data-theme="dark"] .cart-card:hover {
+    box-shadow: var(--card-shadow-elevated);
+}
+
+.card img {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+    padding: 1px;
+    border-radius: 0 20% 0 20%;
+}
+
+.card-body h6 {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.card-body p {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.card-body span del {
+    color: var(--text-dark);
+    opacity: 0.6;
+}
+
+.card-body span b {
+    color: green;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   FIXED: UNIFIED HEIGHT MATRIX & STRICT LAYOUT ALIGNMENT EQUALIZERS
+   ========================================================================== */
+.card-body .d-flex.gap-3.pt-2 {
+    display: flex !important;
+    align-items: stretch !important; /* Prevents any manual top/bottom shifting */
+    justify-content: space-between !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+}
+
+/* Buy Now Button Style Calibration */
+.card-body a.buy-now-btn {
+    color: var(--white-color) !important;
+    background-color: var(--levender) !important;
+    flex-grow: 1 !important;
+    border-radius: 7px !important;
+    height: 38px !important; /* Perfect unified height token */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    padding: 0 !important; /* Erases native Bootstrap inline offsets */
+    margin: 0 !important;
+    border: none !important;
+    transition: 0.3s ease !important;
+    line-height: 1 !important;
+}
+
+.card-body .buy-now-btn:hover {
+    color: var(--white-color) !important;
+    opacity: 0.9;
+}
+
+/* Shopping Cart Button Style Calibration */
+.icon-btn-cart {
+    margin: 0 !important; /* Locks vertical coordinate positioning perfectly */
+    border: 1px solid #8B5CF6 !important;
+    border-radius: 7px !important; 
+    background-color: transparent !important;
+    display: inline-flex !important;
+    height: 38px !important; /* Strictly identical to the buy button */
+    width: 38px !important;  /* Creates balanced perfect square geometry */
+    min-width: 38px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #8B5CF6 !important;
+    font-size: 1.2rem !important; 
+    transition: 0.3s ease !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+.icon-btn-cart:hover {
+    background: #8B5CF6 !important;
+    color: white !important;
+}
+
+/* ==========================================================================
+   WISHLIST BUTTON CONFIGURATIONS
+   ========================================================================== */
+.wishlist {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 4%;
+    right: 6%;
+    z-index: 5;
+}
+
+.wishlist button {
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT SCALING & MEDIA QUERIES
+   ========================================================================== */
+   
+/* TABLET VIEWPORT SLICES */
+@media (max-width: 992px) {
+    .ProductCard-section .container {
+        gap: 2rem;
+    }
+
+    .card {
+        min-width: 13rem;
+        max-width: 13rem;
+    }
+
+    .card img {
+        height: 12rem;
+    }
+
+    .card-body h6 {
+        font-size: 1rem;
+    }
+    
+    .card-body a.buy-now-btn,
+    .icon-btn-cart {
+        height: 35px !important; /* Downscaled unified heights for crisp view */
+    }
+    .icon-btn-cart {
+        width: 35px !important;
+        min-width: 35px !important;
+    }
+}
+
+/* MOBILE VIEWPORT SLICES */
+@media (max-width: 576px) {
+    .ProductCard-section .container {
+        padding: 2%;
+        padding-bottom: 10px; 
+    }
+
+    .card {
+        min-width: 12rem;
+        max-width: 12rem;
+    }
+
+    .card img {
+        height: 11rem;
+    }
+
+    .card-body {
+        padding: 0.8rem;
+    }
+
+    .card-body h6 {
+        font-size: 0.95rem;
+    }
+
+    .card-body p,
+    .card-body span {
+        font-size: 0.85rem;
+    }
+
+    .card-body a.buy-now-btn {
+        font-size: 0.85rem !important;
+    }
+    
+    .card-body a.buy-now-btn,
+    .icon-btn-cart {
+        height: 32px !important; /* Compact clean layouts on dynamic mobile devices */
+    }
+    .icon-btn-cart {
+        width: 32px !important;
+        min-width: 32px !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* ULTRA CONGESTED DEVICES SMARTPHONES SCREEN */
+@media (max-width: 400px) {
+    .ProductCard-section .container {
+        padding: 1.5%;
+    }
+
+    .card {
+        min-width: 11rem;
+        max-width: 11rem;
+    }
+
+    .card img {
+        height: 10rem;
+    }
+
+    .card-body h6 {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   HORIZONTAL SMOOTH SCROLLER GRID SYSTEM (YOU MAY ALSO LIKE SLIDER)
+   ========================================================================== */
+.recent-products-scroll-container {
+    width: 100%;
+    overflow-x: auto; 
+    overflow-y: hidden;
+    padding: 15px 5px 25px 5px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; 
+}
+
+.recent-products-scroll-container::-webkit-scrollbar {
+    height: 6px; 
+}
+
+.recent-products-scroll-container::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.recent-products-scroll-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.recent-products-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.recent-products-scroll-container .ProductCard-section .container {
+    display: flex !important;
+    flex-wrap: nowrap !important; 
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+    padding: 0 15px !important;
+}
+
+.recent-products-scroll-container .ProductCard-section {
+    overflow: visible !important;
+    margin: 0 !important;
+}
+
+.recent-products-scroll-container .card {
+    flex: 0 0 auto !important; 
+    width: 15rem !important;
+    margin: 0 !important;
+}
+
+body.dark-theme .card,
+[data-theme="dark"] .card {
+    background: #111827;
+    border-color: #334155;
+}
+
+body.dark-theme .card-body h6,
+[data-theme="dark"] .card-body h6,
+body.dark-theme .card-body p,
+[data-theme="dark"] .card-body p {
+    color: #eff6ff;
+}
+
+body.dark-theme .card-body span del,
+[data-theme="dark"] .card-body span del {
+    color: #94a3b8;
+}
+
+body.dark-theme .card-body a.buy-now-btn,
+[data-theme="dark"] .card-body a.buy-now-btn {
+    background-color: #8b5cf6 !important;
+}
+
+body.dark-theme .icon-btn-cart,
+[data-theme="dark"] .icon-btn-cart {
+    border-color: #7c3aed !important;
+    color: #c7d2fe !important;
+}
+
+body.dark-theme .wishlist button,
+[data-theme="dark"] .wishlist button {
+    background-color: #111827;
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+body.dark-theme .card-body,
+[data-theme="dark"] .card-body {
+    background: transparent !important;
+}
+
+body.dark-theme .card-title,
+[data-theme="dark"] .card-title,
+body.dark-theme .card-body h6,
+[data-theme="dark"] .card-body h6 {
+    color: var(--text) !important;
+}
+
+body.dark-theme .rating-stars,
+[data-theme="dark"] .rating-stars {
+    color: #e2e8f0 !important;
+}
+
+body.dark-theme .card,
+[data-theme="dark"] .card {
+    background: var(--surface-alt) !important;
+}
+
+body.dark-theme .price-details p,
+[data-theme="dark"] .price-details p {
+    color: #ffffff !important;
+}
+
+body.dark-theme .price-details del,
+[data-theme="dark"] .price-details del {
+    color: var(--text-muted) !important;
+}
+
+body.dark-theme .price-details .text-success,
+body.dark-theme .price-details b,
+[data-theme="dark"] .price-details .text-success,
+[data-theme="dark"] .price-details b {
+    color: #86efac !important;
+}

@@ -1,0 +1,783 @@
+/* Admin Header Styles */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  gap: 20px;
+  border-bottom: 1px solid #f0f0f5;
+  margin-bottom: 1rem;
+}
+
+.admin-header-title-wrapper {
+  flex: 1;
+  min-width: 0;
+  margin-right: 12px;
+}
+
+.admin-header-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-header-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 2px 0 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.admin-profile:hover {
+  background: #faf5ff;
+}
+
+.profile-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ede9fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.profile-role {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.2;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .admin-header {
+    /* The sidebar toggle button is position:fixed at left:14px, ~40px wide */
+    /* So we need at least 14 + 40 + 12gap = ~70px left padding to clear it */
+    padding: 14px 16px 14px 72px;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .admin-header-subtitle {
+    display: none;
+  }
+
+  .header-right {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .admin-header-title-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
+/* ============================================================
+   GLOBAL UNIFIED FILTER & TOOLBAR DESIGN FOR ALL ADMIN PAGES
+   ============================================================ */
+
+/* 1. Main Filter Bar Container */
+.rm-filter-bar,
+.cp-toolbar,
+.pm-toolbar,
+.filter-bar,
+.payment-filter-section {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  background: #ffffff !important;
+  padding: 16px 20px !important;
+  border-radius: 12px !important;
+  border: 1px solid #f0f0f5 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;
+  margin-bottom: 24px !important;
+  margin-top: 0 !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Specific alignments for toolbars with action buttons */
+.cp-toolbar,
+.pm-toolbar {
+  justify-content: space-between !important;
+}
+
+.cp-toolbar-left,
+.pm-toolbar-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  flex: 1 !important;
+}
+
+/* Hide payment filters labels for horizontal consistency */
+.payment-filter-group label {
+  display: none !important;
+}
+.payment-filter-group {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+.payment-filter-group.search {
+  flex: 1 !important;
+}
+
+/* 2. Unified Search Box Wrapper */
+.rm-search-box,
+.cp-search-box,
+.payment-search-input-wrap {
+  position: relative !important;
+  flex: 1 !important;
+  min-width: 240px !important;
+  max-width: 380px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.payment-filter-group.search {
+  max-width: 380px !important;
+}
+
+/* 3. Unified Search Inputs */
+.rm-search-box input,
+.cp-search-input,
+.payment-search-input {
+  width: 100% !important;
+  height: 42px !important;
+  padding: 10px 14px 10px 40px !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  outline: none !important;
+  font-size: 14px !important;
+  color: #374151 !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  box-shadow: none !important;
+}
+
+.rm-search-box input:focus,
+.cp-search-input:focus,
+.payment-search-input:focus {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
+}
+
+/* 4. Unified Search Icons */
+.rm-search-icon,
+.cp-search-icon,
+.payment-search-input-wrap i {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #9ca3af !important;
+  font-size: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 5. Unified Filter Dropdowns & Date Pickers */
+.rm-filter-select,
+.cp-select,
+.pm-select,
+.filter-select,
+.payment-select {
+  height: 42px !important;
+  padding: 10px 36px 10px 14px !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  outline: none !important;
+  font-size: 14px !important;
+  color: #374151 !important;
+  background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 12px center !important;
+  background-size: 16px !important;
+  appearance: none !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  min-width: 150px !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  box-shadow: none !important;
+}
+
+/* Style date pickers nicely */
+input[type="date"].rm-filter-select,
+input[type="date"].filter-select {
+  padding-right: 14px !important;
+  background-image: none !important;
+}
+
+.rm-filter-select:focus,
+.cp-select:focus,
+.pm-select:focus,
+.filter-select:focus,
+.payment-select:focus {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
+}
+
+/* Hide original chevron arrows if any overlap */
+.cp-select-arrow,
+.pm-select-arrow {
+  display: none !important;
+}
+
+/* Wrapper elements for select */
+.rm-filter-select-wrap,
+.cp-select-wrap,
+.pm-select-wrap {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* 6. Filter Icons & Decorative Labels (Order/Product page) */
+.filter-icon-btn,
+.pm-filter-icon-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  background: #ede9fe !important;
+  color: #7c3aed !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+}
+
+.filter-label {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #4b5563 !important;
+  margin: 0 !important;
+}
+
+.filter-divider {
+  width: 1px !important;
+  height: 24px !important;
+  background: #e5e7eb !important;
+  margin: 0 4px !important;
+}
+
+/* 7. Unified Reset Button */
+.rm-reset-btn,
+.cp-reset-btn,
+.pm-reset-btn,
+.reset-filter-btn {
+  height: 42px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 10px 16px !important;
+  background: #ffffff !important;
+  color: #8b5cf6 !important;
+  border: 1px solid #c4b5fd !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+}
+
+.rm-reset-btn:hover,
+.cp-reset-btn:hover,
+.pm-reset-btn:hover,
+.reset-filter-btn:hover {
+  background: #f3e8ff !important;
+  border-color: #8b5cf6 !important;
+}
+
+.rm-reset-btn svg,
+.cp-reset-btn svg,
+.pm-reset-btn svg,
+.reset-filter-btn i {
+  font-size: 14px !important;
+  display: inline-block !important;
+}
+
+/* 8. Action Buttons (Add / Create) */
+.cp-create-btn,
+.pm-add-btn {
+  height: 42px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 18px !important;
+  background: #8b5cf6 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.cp-create-btn:hover,
+.pm-add-btn:hover {
+  background: #7c3aed !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* 9. Mobile responsiveness overrides for global filters */
+@media (max-width: 768px) {
+  .rm-filter-bar,
+  .cp-toolbar,
+  .pm-toolbar,
+  .filter-bar,
+  .payment-filter-section {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+
+  .cp-toolbar-left,
+  .pm-toolbar-left {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .rm-search-box,
+  .cp-search-box,
+  .payment-search-input-wrap,
+  .payment-filter-group.search {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .rm-filter-select,
+  .cp-select,
+  .pm-select,
+  .filter-select,
+  .payment-select,
+  .rm-filter-select-wrap,
+  .cp-select-wrap,
+  .pm-select-wrap {
+    width: 100% !important;
+  }
+
+  .rm-reset-btn,
+  .cp-reset-btn,
+  .pm-reset-btn,
+  .reset-filter-btn,
+  .cp-create-btn,
+  .pm-add-btn {
+    width: 100% !important;
+  }
+
+  .filter-divider {
+    display: none !important;
+  }
+
+  .filter-label {
+    text-align: center !important;
+    margin-bottom: 4px !important;
+  }
+}
+
+  .admin-header-title {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-header {
+    padding: 14px 12px 14px 68px;
+  }
+
+  .admin-header-title {
+    font-size: 16px;
+  }
+
+  .profile-info {
+    display: none;
+  }
+
+  .profile-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-header {
+    padding: 12px 10px 12px 64px;
+  }
+
+  .admin-header-title {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   GLOBAL UNIFIED FONT SIZE DEFINITIONS FOR ALL ADMIN PAGES
+   ============================================================ */
+
+/* Desktop / Default Typography (Screen widths above 768px) */
+@media (min-width: 769px) {
+  /* Scope to .admin-main to target only Admin page content */
+  
+  /* --- Base Font Size --- */
+  .admin-main {
+    font-size: 14px !important;
+  }
+
+  /* --- 1. Page Header Titles (e.g., "Product Management", "Order Details") --- */
+  .admin-main .admin-header-title,
+  .admin-main .pm-add-title,
+  .admin-main .banner-page-title,
+  .admin-main .settings-user-name,
+  .admin-main .confirm-modal-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 2. Page Subtitles / Secondary Text in Header --- */
+  .admin-main .admin-header-subtitle,
+  .admin-main .settings-user-role,
+  .admin-main .settings-user-email,
+  .admin-main .confirm-modal-message {
+    font-size: 13px !important;
+  }
+
+  /* --- 3. Section Titles / Panels / Modal Headers --- */
+  .admin-main h2,
+  .admin-main h3,
+  .admin-main h5,
+  .admin-main h6,
+  .admin-main .pm-panel-title,
+  .admin-main .cp-modal-title,
+  .admin-main .settings-section-title,
+  .admin-main .form-header-title,
+  .admin-main .library-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 4. Subtitles / Description text under section titles --- */
+  .admin-main .form-header-desc,
+  .admin-main .settings-section-subtitle,
+  .admin-main .pm-char-count {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+  }
+
+  /* --- 5. Metric / Stat Card Labels --- */
+  .admin-main .stat-label,
+  .admin-main .pm-stat-title,
+  .admin-main .cp-stat-title,
+  .admin-main .rm-stat-label,
+  .admin-main .payment-stat-label {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+
+  /* --- 6. Metric / Stat Card Values --- */
+  .admin-main .stat-value,
+  .admin-main .pm-stat-value,
+  .admin-main .cp-stat-value,
+  .admin-main .rm-stat-value,
+  .admin-main .payment-stat-value {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 7. Metric Card Trends / Subtext --- */
+  .admin-main .stat-badge,
+  .admin-main .pm-stat-bottom,
+  .admin-main .cp-stat-sub,
+  .admin-main .payment-stat-trend {
+    font-size: 13px !important;
+  }
+
+  /* --- 8. Table Headers (th) --- */
+  .admin-main table th,
+  .admin-main th {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* --- 9. Table Data Cells (td) --- */
+  .admin-main table td,
+  .admin-main td,
+  .admin-main .cp-cell-text {
+    font-size: 13px !important;
+  }
+
+  /* --- 10. Form Input Labels --- */
+  .admin-main .pm-form-group label,
+  .admin-main .pm-add-form-group label,
+  .admin-main .cp-form-group label,
+  .admin-main .settings-form-label,
+  .admin-main .form-group label,
+  .admin-main label {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+
+  /* --- 11. Form Inputs / Textareas / Selects --- */
+  .admin-main input,
+  .admin-main select,
+  .admin-main textarea,
+  .admin-main .form-input,
+  .admin-main .pm-form-input,
+  .admin-main .pm-add-input,
+  .admin-main .settings-input,
+  .admin-main .search-input {
+    font-size: 14px !important;
+  }
+
+  /* --- 12. Standard Buttons & Form Action Buttons --- */
+  .admin-main button,
+  .admin-main .pm-add-btn,
+  .admin-main .pm-reset-btn,
+  .admin-main .cp-reset-btn,
+  .admin-main .rm-reset-btn,
+  .admin-main .reset-filter-btn,
+  .admin-main .payment-reset-btn,
+  .admin-main .pm-btn-solid,
+  .admin-main .pm-btn-outline,
+  .admin-main .cancel-btn,
+  .admin-main .submit-btn,
+  .admin-main .settings-save-btn,
+  .admin-main .settings-edit-btn,
+  .admin-main .confirm-modal-btn {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  /* --- 13. Pagination text and buttons --- */
+  .admin-main .pagination-text,
+  .admin-main .pm-page-info,
+  .admin-main .cp-showing-text,
+  .admin-main .rm-pagination-text,
+  .admin-main .payment-pagination-info,
+  .admin-main .rows-per-page,
+  .admin-main .pm-rows-wrap,
+  .admin-main .cp-rows-per-page,
+  .admin-main .rm-rows-per-page,
+  .admin-main .payment-rows-per-page {
+    font-size: 13px !important;
+  }
+  .admin-main .page-btn,
+  .admin-main .pm-page-btn,
+  .admin-main .cp-page-btn,
+  .admin-main .rm-page-btn,
+  .admin-main .payment-page-btn {
+    font-size: 13px !important;
+  }
+}
+
+/* Mobile Typography (Screen widths 768px and below) */
+@media (max-width: 768px) {
+  .admin-main {
+    font-size: 13px !important;
+  }
+
+  /* --- 1. Page Header Titles --- */
+  .admin-main .admin-header-title,
+  .admin-main .pm-add-title,
+  .admin-main .banner-page-title,
+  .admin-main .settings-user-name,
+  .admin-main .confirm-modal-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 2. Page Subtitles --- */
+  .admin-main .admin-header-subtitle,
+  .admin-main .settings-user-role,
+  .admin-main .settings-user-email,
+  .admin-main .confirm-modal-message {
+    font-size: 12px !important;
+  }
+
+  /* --- 3. Section Titles / Panels / Modal Headers --- */
+  .admin-main h2,
+  .admin-main h3,
+  .admin-main h5,
+  .admin-main h6,
+  .admin-main .pm-panel-title,
+  .admin-main .cp-modal-title,
+  .admin-main .settings-section-title,
+  .admin-main .form-header-title,
+  .admin-main .library-title {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 4. Subtitles under section titles --- */
+  .admin-main .form-header-desc,
+  .admin-main .settings-section-subtitle,
+  .admin-main .pm-char-count {
+    font-size: 12px !important;
+  }
+
+  /* --- 5. Metric / Stat Card Labels --- */
+  .admin-main .stat-label,
+  .admin-main .pm-stat-title,
+  .admin-main .cp-stat-title,
+  .admin-main .rm-stat-label,
+  .admin-main .payment-stat-label {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+  }
+
+  /* --- 6. Metric / Stat Card Values --- */
+  .admin-main .stat-value,
+  .admin-main .pm-stat-value,
+  .admin-main .cp-stat-value,
+  .admin-main .rm-stat-value,
+  .admin-main .payment-stat-value {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 7. Metric Card Trends / Subtext --- */
+  .admin-main .stat-badge,
+  .admin-main .pm-stat-bottom,
+  .admin-main .cp-stat-sub,
+  .admin-main .payment-stat-trend {
+    font-size: 11px !important;
+  }
+
+  /* --- 8. Table Headers (th) --- */
+  .admin-main table th,
+  .admin-main th {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+  }
+
+  /* --- 9. Table Data Cells (td) --- */
+  .admin-main table td,
+  .admin-main td,
+  .admin-main .cp-cell-text {
+    font-size: 12px !important;
+  }
+
+  /* --- 10. Form Input Labels --- */
+  .admin-main .pm-form-group label,
+  .admin-main .pm-add-form-group label,
+  .admin-main .cp-form-group label,
+  .admin-main .settings-form-label,
+  .admin-main .form-group label,
+  .admin-main label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+
+  /* --- 11. Form Inputs / Textareas / Selects --- */
+  .admin-main input,
+  .admin-main select,
+  .admin-main textarea,
+  .admin-main .form-input,
+  .admin-main .pm-form-input,
+  .admin-main .pm-add-input,
+  .admin-main .settings-input,
+  .admin-main .search-input {
+    font-size: 13px !important;
+  }
+
+  /* --- 12. Standard Buttons & Form Action Buttons --- */
+  .admin-main button,
+  .admin-main .pm-add-btn,
+  .admin-main .pm-reset-btn,
+  .admin-main .cp-reset-btn,
+  .admin-main .rm-reset-btn,
+  .admin-main .reset-filter-btn,
+  .admin-main .payment-reset-btn,
+  .admin-main .pm-btn-solid,
+  .admin-main .pm-btn-outline,
+  .admin-main .cancel-btn,
+  .admin-main .submit-btn,
+  .admin-main .settings-save-btn,
+  .admin-main .settings-edit-btn,
+  .admin-main .confirm-modal-btn {
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+  }
+
+  /* --- 13. Pagination text and buttons --- */
+  .admin-main .pagination-text,
+  .admin-main .pm-page-info,
+  .admin-main .cp-showing-text,
+  .admin-main .rm-pagination-text,
+  .admin-main .payment-pagination-info,
+  .admin-main .rows-per-page,
+  .admin-main .pm-rows-wrap,
+  .admin-main .cp-rows-per-page,
+  .admin-main .rm-rows-per-page,
+  .admin-main .payment-rows-per-page {
+    font-size: 12px !important;
+  }
+  .admin-main .page-btn,
+  .admin-main .pm-page-btn,
+  .admin-main .cp-page-btn,
+  .admin-main .rm-page-btn,
+  .admin-main .payment-page-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 11px !important;
+  }
+}

@@ -1,0 +1,377 @@
+/* ==========================================================
+   ORDERS PAGE - MATCHING PROFILE CARD STYLE
+   ========================================================== */
+
+/* Sticky sidebar — mirrors SavedAddress layout */
+.sidebar-sticky {
+  position: sticky;
+  top: 75px;
+  align-self: flex-start;
+}
+
+/* Main card container matching Profile component */
+.profile-details-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 24px;
+  background: #fff;
+}
+
+.orders-page-app-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.orders-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  flex: 1;
+  width: 100%;
+}
+
+.orders-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.orders-header {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Orders purchase history text */
+.orders-purchase-history-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Search Bar Styling - FIXED SEARCH ICON */
+.orders-search-wrapper {
+  width: 100%;
+}
+
+.orders-search {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.orders-search .search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 14px;
+  pointer-events: none; /* Prevents icon from blocking input clicks */
+}
+
+.orders-search .search-input {
+  width: 100%;
+  padding: 10px 16px 10px 42px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  color: #1e293b;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.orders-search .search-input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.18);
+}
+
+.orders-search .search-input::placeholder {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* Orders List Wrapper */
+.orders-list-wrapper {
+  min-height: 400px;
+}
+
+/* Orders Grid - SCROLLBAR HIDDEN BUT FUNCTIONAL */
+.orders-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 550px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.orders-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================
+   EMPTY ORDERS STATE - Matching Wishlist/Reviews Design
+   ========================================================== */
+
+.orders-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.orders-empty-image-wrapper {
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orders-empty-vector {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.orders-empty-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.5px;
+}
+
+.orders-empty-subheading {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 1.5rem 0;
+  max-width: 320px;
+}
+
+.orders-empty-shop-btn {
+  background-color: #8B5CF6 !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.orders-empty-shop-btn:hover {
+  background-color: #7c3aed !important;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================== */
+
+/* 1024px Specific Fixes */
+@media (max-width: 1024px) {
+  .profile-details-card {
+    padding: 20px;
+  }
+  
+  .orders-grid {
+    gap: 14px;
+  }
+  
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .profile-details-card {
+    padding: 20px;
+  }
+}
+/* ==========================================================
+   EMPTY STATE & DARK THEME OVERRIDES MESH CONFIG
+   ========================================================== */
+
+body.dark-theme .orders-page-app-wrapper,
+[data-theme="dark"] .orders-page-app-wrapper,
+body.dark-theme .orders-card,
+[data-theme="dark"] .orders-card,
+body.dark-theme .orders-search .search-input,
+[data-theme="dark"] .orders-search .search-input,
+body.dark-theme .desktop-image-wrapper,
+[data-theme="dark"] .desktop-image-wrapper,
+body.dark-theme .desktop-product-img-fallback,
+[data-theme="dark"] .desktop-product-img-fallback,
+body.dark-theme .mobile-card-layout-view,
+[data-theme="dark"] .mobile-card-layout-view,
+body.dark-theme .mobile-image-frame,
+[data-theme="dark"] .mobile-image-frame {
+  background: var(--surface-alt) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.dark-theme .orders-search .search-input,
+[data-theme="dark"] .orders-search .search-input {
+  background: var(--input-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--input-border) !important;
+}
+
+body.dark-theme .desktop-product-title-name,
+[data-theme="dark"] .desktop-product-title-name,
+body.dark-theme .desktop-current-price,
+[data-theme="dark"] .desktop-current-price,
+body.dark-theme .desktop-time-val-txt,
+[data-theme="dark"] .desktop-time-val-txt,
+body.dark-theme .mobile-product-title-string,
+[data-theme="dark"] .mobile-product-title-string,
+body.dark-theme .mobile-product-rating-badge,
+[data-theme="dark"] .mobile-product-rating-badge,
+body.dark-theme .mobile-curr-price-txt,
+[data-theme="dark"] .mobile-curr-price-txt,
+body.dark-theme .mobile-action-time-val,
+[data-theme="dark"] .mobile-action-time-val {
+  color: var(--text) !important;
+}
+
+body.dark-theme .responsive-order-card-root,
+[data-theme="dark"] .responsive-order-card-root {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .responsive-section-divider,
+[data-theme="dark"] .responsive-section-divider {
+  background-color: #334155 !important;
+}
+
+body.dark-theme .desktop-product-title-name,
+body.dark-theme .desktop-current-price,
+body.dark-theme .desktop-time-val-txt,
+body.dark-theme .mobile-product-title-string,
+body.dark-theme .mobile-product-rating-badge,
+body.dark-theme .mobile-curr-price-txt,
+body.dark-theme .mobile-action-time-val,
+[data-theme="dark"] .desktop-product-title-name,
+[data-theme="dark"] .desktop-current-price,
+[data-theme="dark"] .desktop-time-val-txt,
+[data-theme="dark"] .mobile-product-title-string,
+[data-theme="dark"] .mobile-product-rating-badge,
+[data-theme="dark"] .mobile-curr-price-txt,
+[data-theme="dark"] .mobile-action-time-val {
+  color: #f8fafc !important;
+
+}
+
+@media (max-width: 768px) {
+  .profile-details-card {
+    padding: 16px;
+  }
+  
+  .orders-grid {
+    max-height: 450px;
+    gap: 12px;
+  }
+  
+  .orders-empty-container {
+    padding: 2rem 1rem;
+  }
+  
+  .orders-empty-image-wrapper {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .orders-empty-heading {
+    font-size: 20px;
+  }
+  
+  .orders-empty-subheading {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .orders-empty-shop-btn {
+    font-size: 14px;
+    padding: 8px 24px;
+  }
+  
+  .orders-purchase-history-text {
+    font-size: 0.75rem;
+  }
+  
+  .orders-search {
+    max-width: 100%;
+  }
+  
+  .orders-search .search-input {
+    padding: 8px 16px 8px 38px;
+    font-size: 0.85rem;
+  }
+  
+  .orders-search .search-icon {
+    font-size: 12px;
+    left: 14px;
+  }
+}
+
+
+body.dark-theme .orders-search .search-input::placeholder,
+[data-theme="dark"] .orders-search .search-input::placeholder,
+body.dark-theme .desktop-order-id-txt,
+[data-theme="dark"] .desktop-order-id-txt,
+body.dark-theme .desktop-reviews-count-lbl,
+[data-theme="dark"] .desktop-reviews-count-lbl,
+body.dark-theme .desktop-original-price,
+[data-theme="dark"] .desktop-original-price,
+body.dark-theme .desktop-qty-lbl,
+[data-theme="dark"] .desktop-qty-lbl,
+body.dark-theme .desktop-section-title,
+[data-theme="dark"] .desktop-section-title,
+body.dark-theme .mobile-orig-price-txt,
+[data-theme="dark"] .mobile-orig-price-txt,
+body.dark-theme .mobile-qty-string-txt,
+[data-theme="dark"] .mobile-qty-string-txt,
+body.dark-theme .mobile-action-label,
+[data-theme="dark"] .mobile-action-label {
+  color: var(--text-secondary) !important;
+}
+body.dark-theme .orders-empty-container,
+[data-theme="dark"] .orders-empty-container {
+  background-color: var(--surface-alt) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-theme .orders-empty-heading,
+[data-theme="dark"] .orders-empty-heading {
+  color: var(--text) !important;
+}
+
+body.dark-theme .orders-empty-subheading,
+[data-theme="dark"] .orders-empty-subheading {
+  color: var(--text-secondary) !important;
+}
+

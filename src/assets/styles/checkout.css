@@ -1,0 +1,213 @@
+/* ==========================================================================
+   IMAGE 1 MAPS: EMPTY VIEWPORT ENTRY TRIGGER BUTTONS
+   ========================================================================== */
+.empty-address-viewport {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  min-height: 80px;
+}
+
+.add-delivery-trigger-btn {
+  background: transparent;
+  border: 1.5px solid #8b5cf6; /* Lavender brand tokens map */
+  color: #8b5cf6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: 30px; /* Pillow oval capsules shapes border maps */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-delivery-trigger-btn:hover {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
+/* ==========================================================================
+   IMAGE 2 MAPS: POPUP VIEW DELIVERY SELECTION CARDS
+   ========================================================================== */
+.address-popup-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  animation: modalFadeInBackdrop 0.2s ease-out forwards;
+}
+
+.address-popup-modal-box {
+  width: 92%;
+  max-width: 620px;
+  border-radius: 14px;
+  padding: 24px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-popup-modal-x-btn {
+  background: transparent;
+  border: none;
+  color: #4b5563;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.close-popup-modal-x-btn:hover {
+  color: #111827;
+}
+
+.popup-add-new-address-btn {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.popup-add-new-address-btn:hover {
+  opacity: 0.9;
+}
+
+/* INDIVIDUAL SELECTABLE ADDRESS BLOCK CARDS */
+.popup-address-item-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.popup-address-item-card:hover {
+  border-color: #8b5cf6;
+  background-color: #fbfbfe;
+}
+
+.popup-address-item-card.active-selected-card {
+  border-color: #8b5cf6;
+  background-color: #f5f3ff;
+  box-shadow: inset 0 0 0 1px #8b5cf6;
+}
+
+/* SELECTED PURPLE BADGE PILL ACCENT */
+.address-selected-badge-pill {
+  background-color: #ddd6fe;
+  color: #6d28d9;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* INTERFACE TRAYS POSITIONED UPPER RIGHT EDGE BOUNDS */
+.popup-card-actions-tray {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.popup-action-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.popup-action-icon-btn.edit-icon {
+  border: 1px solid #c4b5fd;
+  color: #8b5cf6;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.popup-action-icon-btn.edit-icon:hover {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+.popup-action-icon-btn.delete-icon {
+  color: #9ca3af;
+  padding: 4px;
+}
+
+.popup-action-icon-btn.delete-icon:hover {
+  color: #ef4444;
+}
+
+/* CUSTOM MODAL CONFIRM SCROLL SYSTEM ASSERTS */
+.popup-address-items-scroller::-webkit-scrollbar {
+  width: 5px;
+}
+.popup-address-items-scroller::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.popup-address-items-scroller::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+@keyframes modalFadeInBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body.dark-theme .empty-address-viewport,
+[data-theme="dark"] .empty-address-viewport,
+body.dark-theme .address-popup-modal-box,
+[data-theme="dark"] .address-popup-modal-box,
+body.dark-theme .popup-address-item-card,
+[data-theme="dark"] .popup-address-item-card,
+body.dark-theme .popup-address-item-card.active-selected-card,
+[data-theme="dark"] .popup-address-item-card.active-selected-card {
+  background: var(--surface-alt) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.dark-theme .popup-address-item-card:hover,
+[data-theme="dark"] .popup-address-item-card:hover {
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+body.dark-theme .popup-add-new-address-btn,
+[data-theme="dark"] .popup-add-new-address-btn,
+body.dark-theme .add-delivery-trigger-btn,
+[data-theme="dark"] .add-delivery-trigger-btn {
+  background: var(--button-bg) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+body.dark-theme .add-delivery-trigger-btn:hover,
+[data-theme="dark"] .add-delivery-trigger-btn:hover {
+  background-color: var(--button-bg-hover) !important;
+}
+
+body.dark-theme .address-popup-modal-box,
+[data-theme="dark"] .address-popup-modal-box {
+  background: var(--surface-alt) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark-theme .address-popup-modal-box h5,
+body.dark-theme .address-popup-modal-box .title,
+[data-theme="dark"] .address-popup-modal-box h5,
+[data-theme="dark"] .address-popup-modal-box .title {
+  color: #ffffff !important;
+}
+
+body.dark-theme .address-popup-modal-box p,
+body.dark-theme .address-popup-modal-box .subtitle,
+[data-theme="dark"] .address-popup-modal-box p,
+[data-theme="dark"] .address-popup-modal-box .subtitle {
+  color: #d1d5db !important;
+}

@@ -1,0 +1,555 @@
+/* Flipkart Style Filter Sidebar */
+.filter-sidebar-flipkart {
+  /* width: 250px; */
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16PX 16px 16px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  /* margin-bottom: 8px; */
+}
+
+.filter-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212121;
+  margin: 0;
+}
+
+.clear-all-btn {
+  background: none;
+  border: none;
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.2s;
+}
+
+.clear-all-btn:hover {
+  color: #7c3aed;
+  background: #f5f3ff;
+  border-radius: 4px;
+}
+
+/* Active Filter Tags */
+.active-filters-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px !important;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px;
+}
+
+.active-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  padding: 4px 8px 4px 12px;
+  font-size: 12px;
+  color: #212121;
+  transition: all 0.2s;
+}
+
+.active-filter-tag:hover {
+  background: #e0e0e0;
+}
+
+.filter-tag-label {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remove-filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #757575;
+  font-size: 12px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.remove-filter-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #ef4444;
+}
+
+/* Filter Section */
+.filter-section {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-section-header:hover {
+  background: #fafafa;
+}
+
+.filter-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #212121;
+  letter-spacing: 0.5px;
+}
+
+.filter-section-content {
+  padding: 0 16px 16px 16px;
+}
+
+/* Category Buttons */
+.category-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-btn {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #212121;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.category-btn:hover {
+  background: #e8e8e8;
+}
+
+.category-btn.active {
+  background: #8b5cf6;
+  color: white;
+}
+
+/* Checkbox List */
+.checkbox-list-wrapper {
+  width: 100%;
+}
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #212121;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.checkbox-item span {
+  flex: 1;
+}
+
+/* PRICE SECTION — pure div-based, no native radio */
+.price-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #212121;
+  padding: 10px 4px;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background 0.1s;
+}
+
+.price-option:active {
+  background: #f5f3ff;
+}
+
+/* Custom radio circle — state driven by inline styles from JS */
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 2px solid #9e9e9e;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background-color 0.15s;
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.price-label {
+  line-height: 1.4;
+}
+
+/* Size Buttons */
+.size-wrapper {
+  width: 100%;
+}
+
+.size-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-btn {
+  padding: 6px 12px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.size-btn:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+}
+
+.size-btn.active {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+  color: white;
+}
+
+/* Show More Button */
+.show-more-btn {
+  background: none;
+  border: none;
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0 4px 0;
+  margin-top: 8px;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.show-more-btn:hover {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+/* Capacity Cards */
+.capacity-cards-wrapper {
+  width: 100%;
+}
+
+.capacity-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.capacity-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 52px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 6px 4px;
+  gap: 2px;
+}
+
+.capacity-card:hover {
+  border-color: #8b5cf6;
+}
+
+.capacity-card.active {
+  border-color: #8b5cf6;
+  background: #faf5ff;
+}
+
+.capacity-check {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #fff;
+  line-height: 1;
+}
+
+.capacity-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #212121;
+}
+
+.capacity-card.active .capacity-value {
+  color: #8b5cf6;
+}
+
+.capacity-label {
+  font-size: 10px;
+  color: #9e9e9e;
+  font-weight: 400;
+}
+
+
+/* REMOVED: Apply Button Styles - No longer needed */
+
+body.dark-theme .filter-sidebar-flipkart,
+[data-theme="dark"] .filter-sidebar-flipkart {
+  background: var(--surface-alt) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+  min-height: 70vh !important;
+}
+
+body.dark-theme .filter-header,
+[data-theme="dark"] .filter-header {
+  border-bottom-color: var(--border) !important;
+}
+
+body.dark-theme .filter-title,
+[data-theme="dark"] .filter-title,
+body.dark-theme .filter-section-title,
+[data-theme="dark"] .filter-section-title,
+body.dark-theme .price-option,
+[data-theme="dark"] .price-option,
+body.dark-theme .checkbox-item,
+[data-theme="dark"] .checkbox-item,
+body.dark-theme .radio-item,
+[data-theme="dark"] .radio-item,
+body.dark-theme .capacity-value,
+[data-theme="dark"] .capacity-value {
+  color: var(--text) !important;
+}
+
+body.dark-theme .capacity-card,
+[data-theme="dark"] .capacity-card {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-theme .capacity-card.active,
+[data-theme="dark"] .capacity-card.active {
+  background: rgba(139, 92, 246, 0.14) !important;
+}
+
+body.dark-theme .capacity-label,
+[data-theme="dark"] .capacity-label {
+  color: var(--text-secondary) !important;
+}
+
+body.dark-theme .clear-all-btn,
+[data-theme="dark"] .clear-all-btn {
+  color: var(--button-bg) !important;
+}
+
+body.dark-theme .clear-all-btn:hover,
+[data-theme="dark"] .clear-all-btn:hover {
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+body.dark-theme .active-filters-tags,
+[data-theme="dark"] .active-filters-tags,
+body.dark-theme .active-filter-tag,
+[data-theme="dark"] .active-filter-tag {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+body.dark-theme .active-filter-tag:hover,
+[data-theme="dark"] .active-filter-tag:hover {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+body.dark-theme .filter-section-header,
+[data-theme="dark"] .filter-section-header {
+  background: transparent !important;
+}
+
+body.dark-theme .filter-section-header:hover,
+[data-theme="dark"] .filter-section-header:hover {
+  background: rgba(255,255,255,0.04) !important;
+}
+
+body.dark-theme .category-btn,
+[data-theme="dark"] .category-btn {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-theme .category-btn:hover,
+[data-theme="dark"] .category-btn:hover {
+  background: rgba(139,92,246,0.08) !important;
+}
+
+body.dark-theme .category-btn.active,
+[data-theme="dark"] .category-btn.active {
+  background: var(--button-bg) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+body.dark-theme .price-option input[type="radio"],
+[data-theme="dark"] .price-option input[type="radio"],
+body.dark-theme .checkbox-item input[type="checkbox"],
+[data-theme="dark"] .checkbox-item input[type="checkbox"],
+body.dark-theme .radio-item input[type="radio"],
+[data-theme="dark"] .radio-item input[type="radio"] {
+  accent-color: var(--button-bg) !important;
+}
+
+body.dark-theme .size-btn,
+[data-theme="dark"] .size-btn {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-theme .size-btn:hover,
+[data-theme="dark"] .size-btn:hover {
+  border-color: var(--button-bg) !important;
+  color: var(--button-bg) !important;
+}
+
+body.dark-theme .size-btn.active,
+[data-theme="dark"] .size-btn.active {
+  background: var(--button-bg) !important;
+  border-color: var(--button-bg) !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .filter-section,
+[data-theme="dark"] .filter-section {
+  border-bottom-color: var(--border) !important;
+}
+
+body.dark-theme .remove-filter-btn,
+[data-theme="dark"] .remove-filter-btn,
+body.dark-theme .show-more-btn,
+[data-theme="dark"] .show-more-btn {
+  color: var(--text-secondary) !important;
+}
+
+body.dark-theme .show-more-btn:hover,
+[data-theme="dark"] .show-more-btn:hover {
+  color: var(--button-bg) !important;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .filter-sidebar-flipkart {
+    width: 100%;
+  }
+}
+
+
+
+
+/* Mobile/Tablet specific optimizations */
+
+@media (max-width: 768px) {
+  .price-option {
+    padding: 12px 4px;
+    min-height: 48px;
+  }
+
+  .custom-radio {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .category-btn,
+  .size-btn,
+  .capacity-card,
+  .checkbox-item {
+    touch-action: manipulation;
+  }
+
+}
+
+  
+  /* Remove hover effects on mobile */
+  .category-btn:hover,
+  .size-btn:hover,
+  .capacity-card:hover,
+  .filter-section-header:hover {
+    background: inherit;
+  }
+
+
+  body.dark-theme .price-option,
+[data-theme="dark"] .price-option {
+  color: var(--text) !important;
+  /* Add this to ensure it stays dark even when active/pressed */
+  background: transparent !important; 
+}
+
+body.dark-theme .price-option:active,
+[data-theme="dark"] .price-option:active {
+  /* Define a subtle dark-grey highlight instead of a white flash */
+  background: rgba(255, 255, 255, 0.05) !important;
+
+}

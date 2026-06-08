@@ -1,0 +1,58 @@
+.sortby-select {
+  height: 50px;
+  width: 150px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.5rem 2.2rem 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  background-color: #fff;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.sortby-select:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+@media (max-width: 768px) {
+  .sortby-select {
+    width: 120px;
+    font-size: 0.9rem;
+    padding: 0.5rem 2rem 0.5rem 0.8rem;
+  }
+}
+
+/* For mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .sortby-select {
+    width: 50%;
+    height: 40px;
+    font-size: 0.7rem;
+    padding: 0.4rem 1.8rem 0.4rem 0.7rem;
+    border-radius: 6px;
+  }
+  @media (max-width: 480px){
+  .sortby-select {
+    width: 10%;
+    height: 40px;
+    font-size: 0.7rem;
+    padding: 0.4rem 1.8rem 0.4rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+}}
+body.dark-theme .sortby-select,
+[data-theme="dark"] .sortby-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f1f5f9' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.75rem center !important;
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+  
+}

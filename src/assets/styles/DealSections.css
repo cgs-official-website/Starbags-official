@@ -1,0 +1,244 @@
+/* Container for the 3 main columns */
+.dashboard-container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* Whole category card styling */
+.category-card {
+  flex: 1 1 0;
+  min-width: 0;
+  background-color: var(--white-color);
+  border: 1px solid var(--over-light);   
+  border-radius: 24px;         
+  padding: 20px;               
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+/* Category card top header bar alignment */
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Main title styling */
+.category-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+/* Header link arrow button wrapper */
+.arrow-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--over-light);
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.arrow-btn:hover {
+  background-color: var( --soft-secondary);
+}
+
+/* Arrow symbol styling */
+.arrow-icon {
+  font-size: 16px;
+  color: #000000;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* The 2x2 grid alignment container */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+/* Individual item layout container box */
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;   
+  border-radius: 16px;         
+  padding: 12px;               
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Image bounding wrapper forcing all boxes to match sizes uniformly */
+.product-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: none !important;
+  margin-bottom: 8px;
+  border: none !important;
+}
+
+/* Standardized asset layout behavior for identical heights and widths */
+.product-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  display: block;
+  pointer-events: none;
+}
+
+/* Text area panel wrapper layout alignment styling */
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ADJUSTED: Decreased Desktop Brand Name Size and Added Truncate safety */
+.product-name {
+  font-size: 16px !important;
+  color: var(--card);
+  font-weight: 500;
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dark theme overrides for category and product boxes */
+body.dark-theme .category-card,
+[data-theme="dark"] .category-card {
+  background: var(--surface-alt) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+body.dark-theme .product-item,
+[data-theme="dark"] .product-item {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .product-image-wrapper,
+[data-theme="dark"] .product-image-wrapper {
+  background: #ffffff !important;
+}
+
+body.dark-theme .category-title,
+[data-theme="dark"] .category-title,
+body.dark-theme .arrow-icon,
+[data-theme="dark"] .arrow-icon {
+  color: var(--text) !important;
+}
+
+body.dark-theme .arrow-btn,
+[data-theme="dark"] .arrow-btn {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .product-name,
+[data-theme="dark"] .product-name {
+  color: #fff !important;
+}
+
+body.dark-theme .product-discount,
+[data-theme="dark"] .product-discount {
+  color: #8b5cf6 !important;
+}
+
+body.dark-theme .product-name,
+[data-theme="dark"] .product-name {
+  color: var(--text) !important;
+}
+
+body.dark-theme .product-discount,
+[data-theme="dark"] .product-discount {
+  color: var(--text-h) !important;
+}
+
+/* Value discount text markup */
+.product-discount {
+  font-size: 12px;
+  color:var(--text-h); 
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ADJUSTED: Mobile layout optimization for screens under 992px */
+@media (max-width: 992px) {
+  .dashboard-container {
+    overflow-x: auto;                    
+    scroll-snap-type: x mandatory;       
+    padding: 12px 20px;
+    gap: 16px;
+    -webkit-overflow-scrolling: touch; 
+  }
+  
+  .dashboard-container::-webkit-scrollbar {
+    display: none; 
+  }
+
+  /* Fixed issue where the container card was taking too much screen real estate */
+  .category-card {
+    flex: 0 0 85%; /* Changed from 100% to 85% so the next sliding card peeks onto the screen */
+    scroll-snap-align: start;            
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .category-title {
+    font-size: 16px;
+  }
+
+  .products-grid {
+    gap: 8px; /* Slightly tighter gap to save vertical space inside small viewports */
+  }
+
+  /* ADJUSTED: Shrinks the big oversized product boxes down cleanly */
+  .product-item {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  /* ADJUSTED: Downscaled image sizing box inside the card layout */
+  .product-image-wrapper {
+    width: 75%;            
+    margin: 0 auto 4px;    
+    aspect-ratio: 1 / 1; 
+  }
+
+  /* ADJUSTED: Font sizing reduction to keep everything aligned on small screens */
+  .product-name {
+    font-size: 14px !important;
+  }
+
+  .product-discount {
+    font-size: 11px;
+    margin-top: 1px;
+  }
+}

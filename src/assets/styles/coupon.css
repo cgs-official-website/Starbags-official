@@ -1,0 +1,129 @@
+.custom-coupon-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.coupon-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.coupon-discount-badge {
+  background: #8b5cf6;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-transform: lowercase;
+}
+
+.coupon-action-apply-btn {
+  background: #8b5cf6;
+  color: #ffffff;
+  border: none;
+  padding: 6px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.coupon-action-apply-btn:hover {
+  opacity: 0.9;
+}
+
+.coupon-code-clipboard-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 6px 0;
+}
+
+.coupon-plain-code-text {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.coupon-copy-utility-icon {
+  color: #4b5563;
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: color 0.15s ease;
+}
+
+.coupon-copy-utility-icon:hover {
+  color: #8b5cf6;
+}
+
+.coupon-savings-green-text {
+  color: #16a34a;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+
+.coupon-card-divider-dashed {
+  border-top: 1.5px dashed #e2e8f0;
+  width: 100%;
+  margin: 0 0 12px 0;
+}
+
+.coupon-terms-description-text {
+  color: #1f2937;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* --- Dark Mode Overrides --- */
+
+/* Use a data-theme attribute or a class for dark mode */
+body.dark-theme .custom-coupon-card,
+[data-theme="dark"] .custom-coupon-card {
+  background: #1e1e2e; /* Deep dark surface color */
+  border-color: #3f3f5a; /* Subtle border for dark backgrounds */
+}
+
+body.dark-theme .coupon-plain-code-text,
+[data-theme="dark"] .coupon-plain-code-text {
+  color: #e2e8f0; /* Off-white for readability */
+}
+
+body.dark-theme .coupon-terms-description-text,
+[data-theme="dark"] .coupon-terms-description-text {
+  color: #cbd5e1; /* Lighter grey for text */
+}
+
+body.dark-theme .coupon-copy-utility-icon,
+[data-theme="dark"] .coupon-copy-utility-icon {
+  color: #94a3b8; /* Brighter grey for icons */
+}
+
+body.dark-theme .coupon-copy-utility-icon:hover,
+[data-theme="dark"] .coupon-copy-utility-icon:hover {
+  color: #a78bfa; /* Lighter lavender for hover */
+}
+
+body.dark-theme .coupon-card-divider-dashed,
+[data-theme="dark"] .coupon-card-divider-dashed {
+  border-top-color: #3f3f5a; /* Muted border for dark mode */
+}
+
+/* Ensure green text is readable in dark mode */
+body.dark-theme .coupon-savings-green-text,
+[data-theme="dark"] .coupon-savings-green-text {
+  color: #4ade80; /* Brighter, more vibrant green for dark mode */
+}
